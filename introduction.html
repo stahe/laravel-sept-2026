@@ -395,6 +395,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1.3. Exécuter l&#39;étude de cas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-installation-de-laragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.1. Installation de Laragon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-execution-de-letude-de-cas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.2. Exécution de l’étude de cas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -823,6 +851,141 @@
 </code></pre></div></td></tr></table></div>
 <p><em>[Composer]</em> télécharge alors le <strong>squelette</strong> d&#x27;une application <em>[Laravel]</em> (une cinquantaine de fichiers et de dossiers : configuration, fournisseurs de services, migrations, tests, outils de construction du <em>[JavaScript]</em>...), puis ses bibliothèques, et crée une clé de chiffrement. C&#x27;est ainsi que l&#x27;on commence un vrai projet. Pour apprendre, ce squelette a un inconvénient : il contient beaucoup de fichiers dont on ne sait pas encore à quoi ils servent. Les exemples de ce document partent donc de l&#x27;autre bout : l&#x27;exemple 01 est la plus petite application <em>[Laravel]</em> possible, et chaque exemple n&#x27;ajoute que les fichiers dont il a besoin. L&#x27;étude de cas, à la fin, a la structure d&#x27;une application <em>[Laravel]</em> ordinaire.</p>
 <h2 id="13-executer-letude-de-cas">1.3. <span style="color: #2e74b5">Exécuter l&#x27;étude de cas</span></h2>
+<h3 id="131-installation-de-laragon">1.3.1. <span style="color: #1f4d78">Installation de Laragon</span></h3>
+<p>L’étude de cas a besoin du SGBD MySQL, d’un interpréteur PHP, de l’installateur de packages PHP [composer]. Laragon peut apporter tout cela et plus. En septembre 2026, Laragon est disponible à l’URL <em><mark style="background-color: #fff5ce">[</mark></em><a href="https://laragon.org/download"><em><mark style="background-color: #fff5ce">Download Laragon – Fast &amp; Modern Dev Environment</mark></em></a><em><mark style="background-color: #fff5ce"> </mark></em><em><mark style="background-color: #fff5ce">]</mark></em>. Laragon amène avec lui des outils qui permettent d’installer un serveur PHP et le SGBD <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> :</p>
+<p><img src="images/10000000000006440000030C86481A8B.png" width="643" height="312" style="width:17cm;height:8.266cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C86481A8B.png" /></p>
+<ul>
+<li>en [1], un serveur web Apache ;</li>
+<li>en [2], le SGBD <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> ;</li>
+<li>en [3], un outil de messagerie que nous n’utiliserons pas ;</li>
+<li>en [4], lance tous les services (Apache, <em><mark style="background-color: #fff5ce">[MySQL]</mark></em>, MailPit) ;</li>
+<li>en [5], affiche la page web d’URL <em><mark style="background-color: #fff5ce">[</mark></em><a href="http://localhost/"><em><mark style="background-color: #fff5ce">http://localhost</mark></em></a><em><mark style="background-color: #fff5ce">]</mark></em>. Par défaut, cette URL désigne le dossier &lt;laragon-install&gt;\www où &lt;laragon-install&gt; est le dossier d’installation de Laragon ;</li>
+<li>en [6], lance l’Outil HeidiSQL qui permet de gérer des bases de données MySQL. C’est avec cet outil que nous créerons la base de données utilisée par le serveur de calcul de l’impôt ;</li>
+<li>en [7], ouvre un terminal dans lequel tous les binaires utiles à Laragon sont dans le PATH ;</li>
+<li>en [8], ouvre un explorateur windows dans le dossier associé à l’URL <em><mark style="background-color: #fff5ce">[http://localhost]</mark></em> ;</li>
+</ul>
+<p>Le dossier d’installation de Laragon comporte les éléments suivants :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002DB00000324CA05B23E.png" width="314" height="345" style="display:inline-block; margin:4px;width:8.306cm;height:9.133cm;" class="odt-zoomable" data-zoom-src="images/10000000000002DB00000324CA05B23E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>En [1], le dossier <em><mark style="background-color: #fff5ce">[bin]</mark></em> contient de nombreuses applications :</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000329000004CE02139058.png" width="404" height="615" style="display:inline-block; margin:4px;width:10.7cm;height:16.27cm;" class="odt-zoomable" data-zoom-src="images/1000000000000329000004CE02139058.png" /></td></tr></table>
+
+<ul>
+<li>En [1], le serveur web Apache ;</li>
+<li>en [2], un terminal de commandes ;</li>
+<li>en [3], un client <em><mark style="background-color: #fff5ce">[git]</mark></em> permettant de versionner les différentes versions d’un projet ;</li>
+<li>en [4], un gestionnaire de bases de données ;</li>
+<li>en [5], un gestionnaire courrier ;</li>
+<li>en [6], le SGBD <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> ;</li>
+<li>en [7], un autre serveur web ;</li>
+<li>en [8], <em><mark style="background-color: #fff5ce">[node.js]</mark></em> pour exécuter des scripts Javascript ;</li>
+<li>en [9], un éditeur de texte ;</li>
+<li>en [10], l’interpréteur PHP ;</li>
+<li>en [11], l’interpréteur <em><mark style="background-color: #fff5ce">[Python]</mark></em> ;</li>
+<li>en [12], un serveur de cache ;</li>
+</ul>
+<p>Laragon ramène avec lui un environnement de développement conséquent. Dans ce cours, nous utiliserons :</p>
+<ul>
+<li>le SGBD <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> [6] et l’outil <em><mark style="background-color: #fff5ce">[heidisql]</mark></em> pour le gérer graphiquement ;</li>
+<li>l’interpréteur PHP 8.5 ;</li>
+<li>l’installateur de packages [composer] ;</li>
+</ul>
+<p>Le README de l’étude de cas indique qu’on doit taper dans un terminal les commandes suivantes :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>composer install
+</code></pre></div>
+<p>pour installer les packages PHP nécessaires aux exemples et à l’étude de cas.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>php -S localhost:8000 -t public
+</code></pre></div>
+<p>pour exécuter soit un des exemples, soit l’étude de cas. Si vous utilisez un terminal [PowerShell] dans VSCode vous rencontrerez le problème suivant : ni [composer], ni [php] ne sont dans le PATH de la machine Windows après l’installation de Laragon. Ces commandes ne seront donc pas reconnues dans un terminal VSCode.</p>
+<p>Pour inclure [composer] et [php] dans le PATH de la machine Windows, ouvrez un terminal PowerShell en mode [<strong>administrateur</strong>] puis tapez les commandes suivantes :</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">[Environment]::SetEnvironmentVariable(&quot;Path&quot;,[Environment]::GetEnvironmentVariable(&quot;Path&quot;, &quot;Machine&quot;) + &quot;;<span style="background-color:#fff5ce">C:\laragon\bin\composer</span>&quot;,&quot;Machine&quot;)</span></span>
+</code></pre></div>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">[Environment]::SetEnvironmentVariable(&quot;Path&quot;,[Environment]::GetEnvironmentVariable(&quot;Path&quot;, &quot;Machine&quot;) + &quot;;<span style="background-color:#fff5ce">C:\laragon\bin\php\php-8.5.11-nts-Win32-vs17-x64</span>&quot;,&quot;Machine&quot;)</span></span>
+</code></pre></div>
+
+<p>Adaptez les deux chemins surlignés à votre environnement.</p>
+<p>Vous aurez à relancer VSCode pour que ces modifications soient prises en compte.</p>
+<p>Pour créer la base de données <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> nécessaire à l’étude de cas, nous procédons de la façon suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006440000030C352A3F89.png" width="503" height="244" style="display:inline-block; margin:4px;width:13.301cm;height:6.468cm;" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C352A3F89.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>En [1], tous les services doivent être lancés ;</li>
+<li>en [2], l’option <em><mark style="background-color: #fff5ce">[Database]</mark></em> vous permet de gérer la base de données ;</li>
+</ul>
+<p>L’option <em><mark style="background-color: #fff5ce">[Database]</mark></em> lance un utilitaire appelé HeidiSQL :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000008D2000003C91FBD37B4.png" width="621" height="266" style="display:inline-block; margin:4px;width:16.431cm;height:7.05cm;" class="odt-zoomable" data-zoom-src="images/10000000000008D2000003C91FBD37B4.png" /></td></tr></table>
+
+<ul>
+<li>En [1], vous pouvez sélectionner divers SGBD. La valeur par défaut proposée est le SGBD MySQL. Cela convient ;</li>
+<li>en [2], vous ouvrez une session de HeidiSQL ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003FD0000018A35CBA47C.png" width="357" height="138" style="display:inline-block; margin:4px;width:9.449cm;height:3.649cm;" class="odt-zoomable" data-zoom-src="images/10000000000003FD0000018A35CBA47C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002A4000001C70316A390.png" width="237" height="159" style="display:inline-block; margin:4px;width:6.26cm;height:4.21cm;" class="odt-zoomable" data-zoom-src="images/10000000000002A4000001C70316A390.png" /></td></tr></table>
+
+<ul>
+<li>En [1-2], exécutez un fichier SQL puis choisissez le fichier <em><mark style="background-color: #fff5ce">[dbrdvmedecins</mark></em><em><mark style="background-color: #fff5ce">2</mark></em><em><mark style="background-color: #fff5ce">.sql]</mark></em> que vous trouverez dans le dossier <em><mark style="background-color: #fff5ce">[</mark></em><em><mark style="background-color: #fff5ce">symfony-sept-202-</mark></em><em><mark style="background-color: #fff5ce">]</mark></em> :</li>
+</ul>
+<p><img src="images/10000000000001D7000001F897B5F6F5.png" width="198" height="212" style="width:5.226cm;height:5.6cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D7000001F897B5F6F5.png" /></p>
+<p>L’exécution du fichier [3] va créer la base <em><mark style="background-color: #fff5ce">[dbrdvmedecins</mark></em><em><mark style="background-color: #fff5ce">2</mark></em><em><mark style="background-color: #fff5ce">]</mark></em> utilisée par l’étude de cas. Pour le voir, faites F5 dans HeidiSQL pour rafraîchir l’affichage :</p>
+<p><strong>Note du réviseur</strong> : les copies d’écran qui suivent montrent une base de données [dbrdvmedecins] alors que la base de données de l’étude de cas s’appelle [dbrdvmedecins2]. Les deux bases sont quasi identiques et on a donc estimé qu’il était inutile de refaire des copies d’écran.</p>
+<p><strong>Fin de note</strong></p>
+<p><img src="images/10000000000002A50000031EFB250513.png" width="213" height="250" style="width:5.639cm;height:6.609cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002A50000031EFB250513.png" /></p>
+<p>La base de données <em><mark style="background-color: #fff5ce">[dbrdvmedecins]</mark></em> a été créée. On peut en voir le contenu :</p>
+<p><img src="images/100000000000053F00000271DC17B512.png" width="602" height="280" style="width:15.921cm;height:7.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000053F00000271DC17B512.png" /></p>
+<ul>
+<li>en [1-3], la table <em><mark style="background-color: #fff5ce">[clients]</mark></em> ;<ul>
+<li><em><mark style="background-color: #fff5ce">[id]</mark></em> est la clé primaire de la table ;</li>
+<li><em><mark style="background-color: #fff5ce">[version]</mark></em> est le numéro de version de la ligne. Ce numéro augmente à chaque modification de la ligne ;</li>
+<li><em><mark style="background-color: #fff5ce">[titre, nom, prenom]</mark></em> identifient la personne ;</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/100000000000052A0000026BD3179386.png" width="602" height="282" style="width:15.921cm;height:7.454cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052A0000026BD3179386.png" /></p>
+<ul>
+<li>en [1-3], la table <em><mark style="background-color: #fff5ce">[medecins]</mark></em> ;<ul>
+<li><em><mark style="background-color: #fff5ce">[id]</mark></em> est la clé primaire de la table ;</li>
+<li><em><mark style="background-color: #fff5ce">[version]</mark></em> est le numéro de version de la ligne ;</li>
+<li><em><mark style="background-color: #fff5ce">[titre, nom, prenom]</mark></em> identifient la personne ;</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/10000000000005FE000002C6FB6943F4.png" width="602" height="278" style="width:15.921cm;height:7.368cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005FE000002C6FB6943F4.png" /></p>
+<ul>
+<li>en [1-3], la table des créneaux horaires de consultation des médecins :<ul>
+<li><em><mark style="background-color: #fff5ce">[id]</mark></em> : clé primaire ;</li>
+<li><em><mark style="background-color: #fff5ce">[version]</mark></em> : numéro de version de la ligne ;</li>
+<li><em><mark style="background-color: #fff5ce">[id-medecin]</mark></em> : clé étrangère ciblée sur la clé primaire du médecin ;</li>
+<li><em><mark style="background-color: #fff5ce">[hdebut, mdebut]</mark></em> : heure et minutes de début de la consultation. Ainsi <em><mark style="background-color: #fff5ce">[8,20]</mark></em> signifie 8h20.</li>
+<li><em><mark style="background-color: #fff5ce">[hfin, mfin]</mark></em> : heure et minutes de fin de la consultation. </li>
+</ul>
+</li>
+</ul>
+<p><img src="images/10000000000005EB0000024E23D6EF19.png" width="602" height="234" style="width:15.921cm;height:6.198cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005EB0000024E23D6EF19.png" /></p>
+<ul>
+<li>En [1-3], la table <em><mark style="background-color: #fff5ce">[rv]</mark></em> des rendez-vous pris ;<ul>
+<li><em><mark style="background-color: #fff5ce">[id]</mark></em> : clé primaire ;</li>
+<li><em><mark style="background-color: #fff5ce">[version]</mark></em> : numéro de version ;</li>
+<li><em><mark style="background-color: #fff5ce">[jour]</mark></em> : jour du rendez-vous ;</li>
+<li><em><mark style="background-color: #fff5ce">[id_creneau]</mark></em> : clé étrangère vers la clé primaire du créneau horaire du rendez-vous. Comme un créneau horaire est lié à un médecin, on sait quel médecin assure ce rendez-vous ;</li>
+<li><em><mark style="background-color: #fff5ce">[id_client]</mark></em> : clé étrangère vers le numéro (clé primaire) du client qui consulte ;</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/100000000000066300000266A61EA136.png" width="602" height="226" style="width:15.921cm;height:5.978cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000066300000266A61EA136.png" /></p>
+<ul>
+<li>en [1-3], la table <em><mark style="background-color: #fff5ce">[users]</mark></em> qui liste les utilisateurs autorisés à utiliser l’application <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> ;<ul>
+<li><em><mark style="background-color: #fff5ce">[id, version]</mark></em> : clé primaire, numéro de version ;</li>
+<li><em><mark style="background-color: #fff5ce">[login, password]</mark></em> : identifiants de l’utilisateur ;</li>
+<li><em><mark style="background-color: #fff5ce">[nom]</mark></em> : nom donné à l’utilisateur ;</li>
+<li><em><mark style="background-color: #fff5ce">[role]</mark></em> : son rôle. <em><mark style="background-color: #fff5ce">[ADMIN]</mark></em> a tous les droits. <em><mark style="background-color: #fff5ce">[USER]</mark></em> n’a que des droits de lecture. Il pourra consulter l’agenda d’un médecin mais pas prendre / annuler un rendez-vous ;</li>
+</ul>
+</li>
+</ul>
+<h3 id="132-execution-de-letude-de-cas">1.3.2. <span style="color: #1f4d78">Exécution de l’étude de cas</span></h3>
 <p><strong>Note du réviseur</strong> : je conseille au lecteur d&#x27;exécuter immédiatement l&#x27;étude de cas comme il est indiqué dans ce qui suit. Une fois bien compris le rôle de cette application de rendez-vous, demander à son IA favorite de modifier l&#x27;application dans le sens suivant : désormais chaque médecin pourra :</p>
 <ul>
 <li>fixer lui-même les créneaux de consultation entre deux dates. Cela lui permettra de modifier ses horaires selon ses besoins ;</li>
@@ -832,38 +995,38 @@
 <p>Par ailleurs, je n&#x27;ai pas révisé le cours produit par <strong>Claude</strong>. Il avait déjà produit des cours [NestJS], [ASP.NET Core MVC], [Spring MVC] et [Flask] parfaits. J&#x27;ai supposé qu&#x27;il en était de même pour celui-ci. Si vous butez sur un obstacle de compréhension, la solution est toujours la même : demandez à votre IA favorite de vous expliquer ce que vous ne comprenez pas. <strong>Claude</strong>, par exemple, fait ça très bien. Vous aurez peut-être besoin de lui &quot;uploader&quot; l&#x27;exemple que vous ne comprenez pas.</p>
 <p><strong>Fin de note</strong>.</p>
 <p>L&#x27;étude de cas qui termine ce document est une application complète. Le lecteur voudra sans doute la voir fonctionner avant d&#x27;entrer dans le détail du framework : voici comment l&#x27;exécuter. Elle se trouve dans le dossier <strong><em>[rdvmedecins2-laravel]</em></strong>, à côté du dossier <strong><em>[exemples]</em></strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>laravel-sept-2026/
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>├── exemples/
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>└── rdvmedecins2-laravel/
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>laravel-sept-2026/
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>├── exemples/
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>└── rdvmedecins2-laravel/
 </code></pre></div></td></tr></table></div>
 <p>Il faut avoir installé <em>[PHP]</em> (8.4 ou plus récent), <em>[Composer]</em>, <em>[Visual Studio Code]</em> et <em>[MySQL]</em> (cf. annexes). Puis :</p>
 <ul>
 <li><strong>créer la base de données</strong> <strong><em>[dbrdvmedecins2]</em></strong>, en exécutant le script <strong><em>[rdvmedecins2-laravel/database/dbrdvmedecins2.sql]</em></strong>. Avec <em>[Laragon]</em>, on ouvre l&#x27;outil <em>[HeidiSQL]</em> (bouton Base de données), puis on exécute le script par le menu Fichier / Exécuter un fichier SQL. En ligne de commande, depuis le dossier <strong><em>[rdvmedecins2-laravel]</em></strong> :</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>mysql -u root &lt; database/dbrdvmedecins2.sql
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>mysql -u root &lt; database/dbrdvmedecins2.sql
 </code></pre></div></td></tr></table></div>
 <ul>
 <li><strong>ouvrir le dossier</strong> <strong><em>[rdvmedecins2-laravel]</em></strong> dans <em>[Visual Studio Code]</em> (menu Fichier / Ouvrir le dossier), puis un terminal (menu Terminal / Nouveau terminal) ;</li>
 <li><strong>installer les bibliothèques</strong> de l&#x27;application : <em>[Composer]</em> lit le fichier <strong><em>[composer.json]</em></strong>, télécharge <em>[Laravel]</em> et les autres bibliothèques, et les range dans le dossier <strong><em>[vendor]</em></strong> de l&#x27;application (quelques dizaines de secondes) :</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>composer install
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>composer install
 </code></pre></div></td></tr></table></div>
 <ul>
 <li><strong>vérifier la connexion à la base</strong>. L&#x27;application se connecte à <em>[MySQL]</em> sur <strong><em>[127.0.0.1]</em></strong>, port 3306, avec l&#x27;utilisateur <strong><em>[root]</em></strong> <strong>sans mot de passe</strong> (les réglages par défaut de <em>[Laragon]</em>). Si votre compte <strong><em>[root]</em></strong> a un mot de passe, indiquez-le dans le fichier <strong><em>[.env]</em></strong> de l&#x27;application, à la ligne <strong><em>[DB_PASSWORD=]</em></strong> (par exemple <strong><em>[DB_PASSWORD=monMotDePasse]</em></strong>) ;</li>
 <li><strong>lancer l&#x27;application</strong> :</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>php artisan serve --port=8081
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>php artisan serve --port=8081
 </code></pre></div></td></tr></table></div>
 <ul>
 <li><em>[Laravel]</em> affiche :</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>   INFO  Server running on [http://127.0.0.1:8081].
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  Press Ctrl+C to stop the server
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>   INFO  Server running on [http://127.0.0.1:8081].
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>  Press Ctrl+C to stop the server
 </code></pre></div></td></tr></table></div>
 <p>Le serveur de développement écoute sur le port 8081 de l&#x27;adresse <strong><em>[127.0.0.1]</em></strong> (c&#x27;est-à-dire <strong><em>[localhost]</em></strong>). Chaque requête reçue sera signalée dans la console, ainsi que les ordres SQL qu&#x27;elle envoie à la base ;</p>
 <ul>
@@ -873,76 +1036,29 @@
 <ul>
 <li>se connecter avec l&#x27;un des comptes de démonstration, dont le mot de passe est le login : <strong><em>[admin]</em></strong> (administrateur), <strong><em>[pelissier]</em></strong>, <strong><em>[tatou]</em></strong>, <strong><em>[dupont]</em></strong> (médecins), <strong><em>[martin]</em></strong>, <strong><em>[durand]</em></strong>, <strong><em>[bistrou]</em></strong>, <strong><em>[german]</em></strong> (patients). Il faut aussi recopier les caractères de l&#x27;image, en majuscules ou en minuscules.</li>
 </ul>
-<p>Une application <em>[PHP]</em> ne lit pas la base à son démarrage : une erreur de connexion n&#x27;apparaît qu&#x27;à la première page qui interroge la base, c&#x27;est-à-dire à la connexion. <em>[Laravel]</em> affiche alors sa page de débogage, et inscrit l&#x27;erreur dans le fichier <strong><em>[storage/logs/laravel.log]</em></strong>. Avec le message <strong><em>[SQLSTATE[HY000] [2002] Connection refused]</em></strong>, c&#x27;est que <em>[MySQL]</em> n&#x27;est pas démarré ; avec <strong><em>[[1045] Access denied for user &#x27;root&#x27;@&#x27;localhost&#x27;]</em></strong>, que le mot de passe est incorrect ; avec <strong><em>[[1049] Unknown database &#x27;dbrdvmedecins2&#x27;]</em></strong>, que le script SQL n&#x27;a pas été exécuté ; avec <strong><em>[could not find driver]</em></strong>, que l&#x27;extension <strong><em>[pdo_mysql]</em></strong> de <em>[PHP]</em> n&#x27;est pas activée. Si la commande <strong><em>[php artisan serve]</em></strong> elle-même échoue avec le message <strong><em>[Failed opening required &#x27;.../vendor/autoload.php&#x27;]</em></strong>, c&#x27;est que <strong><em>[composer install]</em></strong> n&#x27;a pas été exécuté ; avec <strong><em>[Failed to listen on 127.0.0.1:8081 (reason: Address already in use)]</em></strong>, que le port 8081 est déjà occupé (par une autre version de l&#x27;application, par exemple). Le fichier <strong><em>[README.md]</em></strong> de l&#x27;application décrit d&#x27;autres cas. On arrête l&#x27;application par <strong><em>[Ctrl-C]</em></strong> dans le terminal.</p>
+<p>Une application <em>[PHP]</em> ne lit pas la base à son démarrage : une erreur de connexion n&#x27;apparaît qu&#x27;à la première page qui interroge la base, c&#x27;est-à-dire à la connexion. <em>[Laravel]</em> affiche alors sa page de débogage, et inscrit l&#x27;erreur dans le fichier <strong><em>[storage/logs/laravel.log]</em></strong>. Avec le message <strong><em>[SQLSTATE[HY000] [2002] Connection refused]</em></strong>, c&#x27;est que <em>[MySQL]</em> n&#x27;est pas démarré ; avec <strong><em>[[1045]</em></strong> <strong><em>Access denied for user &#x27;root&#x27;@&#x27;localhost&#x27;]</em></strong>, que le mot de passe est incorrect ; avec <strong><em>[[1049] Unknown database &#x27;dbrdvmedecins2&#x27;]</em></strong>, que le script SQL n&#x27;a pas été exécuté ; avec <strong><em>[could not find driver]</em></strong>, que l&#x27;extension <strong><em>[pdo_mysql]</em></strong> de <em>[PHP]</em> n&#x27;est pas activée. Si la commande <strong><em>[php artisan serve]</em></strong> elle-même échoue avec le message <strong><em>[Failed opening required &#x27;.../vendor/autoload.php&#x27;]</em></strong>, c&#x27;est que <strong><em>[composer install]</em></strong> n&#x27;a pas été exécuté ; avec <strong><em>[Failed to listen on 127.0.0.1:8081 (reason: Address already in use)]</em></strong>, que le port 8081 est déjà occupé (par une autre version de l&#x27;application, par exemple). Le fichier <strong><em>[README.md]</em></strong> de l&#x27;application décrit d&#x27;autres cas. On arrête l&#x27;application par <strong><em>[Ctrl-C]</em></strong> dans le terminal.</p>
 <p>L&#x27;étude de cas, à la fin du document, présente l&#x27;utilisation de l&#x27;application, puis commente chacun de ses fichiers.</p>
 <h2 id="14-les-exemples">1.4. <span style="color: #2e74b5">Les exemples</span></h2>
 <p>Les exemples sont rangés dans le dossier <strong><em>[exemples]</em></strong>, un sous-dossier par exemple :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span>
-<span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span>
-<span class="normal"><a href="#__codelineno-6-7">7</a></span>
-<span class="normal"><a href="#__codelineno-6-8">8</a></span>
-<span class="normal"><a href="#__codelineno-6-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>exemples/
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>├── 01-structure/
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>├── 02-routage/
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>├── ...
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>├── 28-couches/
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>├── commun/
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a>│   ├── bootstrap/
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a>│   └── bootstrap.php
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a>└── composer.json
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span>
+<span class="normal"><a href="#__codelineno-8-8">8</a></span>
+<span class="normal"><a href="#__codelineno-8-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>exemples/
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>├── 01-structure/
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>├── 02-routage/
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>├── ...
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>├── 28-couches/
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>├── commun/
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>│   ├── bootstrap/
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>│   └── bootstrap.php
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>└── composer.json
 </code></pre></div></td></tr></table></div>
 <p>Chaque exemple est une petite application <em>[Laravel]</em>, que l&#x27;on exécute seule. Tous les exemples utilisent les mêmes bibliothèques, décrites par le fichier <strong><em>[exemples/composer.json]</em></strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span>
-<span class="normal"><a href="#__codelineno-7-12">12</a></span>
-<span class="normal"><a href="#__codelineno-7-13">13</a></span>
-<span class="normal"><a href="#__codelineno-7-14">14</a></span>
-<span class="normal"><a href="#__codelineno-7-15">15</a></span>
-<span class="normal"><a href="#__codelineno-7-16">16</a></span>
-<span class="normal"><a href="#__codelineno-7-17">17</a></span>
-<span class="normal"><a href="#__codelineno-7-18">18</a></span>
-<span class="normal"><a href="#__codelineno-7-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="p">{</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="s">"name"</span><span class="p">:</span><span class="w"> </span><span class="s">"cours/laravel-exemples"</span><span class="p">,</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="s">"description"</span><span class="p">:</span><span class="w"> </span><span class="s">"Les 28 exemples du cours [Introduction étape par étape au framework web Laravel] : un seul dossier vendor, partagé par tous les exemples"</span><span class="p">,</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="s">"type"</span><span class="p">:</span><span class="w"> </span><span class="s">"project"</span><span class="p">,</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="s">"license"</span><span class="p">:</span><span class="w"> </span><span class="s">"MIT"</span><span class="p">,</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="s">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">        </span><span class="s">"php"</span><span class="p">:</span><span class="w"> </span><span class="s">"^8.4"</span><span class="p">,</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">        </span><span class="s">"ext-intl"</span><span class="p">:</span><span class="w"> </span><span class="s">"*"</span><span class="p">,</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">        </span><span class="s">"ext-pdo_mysql"</span><span class="p">:</span><span class="w"> </span><span class="s">"*"</span><span class="p">,</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="s">"laravel/framework"</span><span class="p">:</span><span class="w"> </span><span class="s">"^13.33"</span><span class="p">,</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="s">"firebase/php-jwt"</span><span class="p">:</span><span class="w"> </span><span class="s">"^7.0"</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">    </span><span class="s">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">        </span><span class="s">"optimize-autoloader"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">        </span><span class="s">"sort-packages"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">    </span><span class="s">"minimum-stability"</span><span class="p">:</span><span class="w"> </span><span class="s">"stable"</span><span class="p">,</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">    </span><span class="s">"prefer-stable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<ul>
-<li>lignes 6-12 : ce dont les exemples ont besoin : <em>[PHP]</em> 8.4 ou plus récent, les extensions <strong><em>[intl]</em></strong> (la mise en forme des nombres selon la langue, exemple 16) et <strong><em>[pdo_mysql]</em></strong> (l&#x27;accès à <em>[MySQL]</em>, exemple 28), <em>[Laravel]</em> et <em>[firebase/php-jwt]</em> (les jetons JWT, exemple 25). <strong><em>[^13.33]</em></strong> se lit « la version 13.33, ou une version plus récente de la version majeure 13 » ;</li>
-<li>les autres lignes règlent le comportement de <em>[Composer]</em> : le chargeur de classes est optimisé, les bibliothèques sont triées par nom, et seules les versions stables sont acceptées.</li>
-</ul>
-<p>Pour exécuter les exemples, on installe d&#x27;abord leurs bibliothèques, une fois pour toutes, dans un terminal ouvert sur le dossier <strong><em>[exemples]</em></strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>composer install
-</code></pre></div></td></tr></table></div>
-<p><em>[Composer]</em> crée le dossier <strong><em>[exemples/vendor]</em></strong>, <strong>partagé</strong> par les 28 exemples, et le fichier <strong><em>[composer.lock]</em></strong>, qui note les versions exactes installées (cf. étude de cas). Le dossier <strong><em>[commun]</em></strong> contient le framework CSS <em>[Bootstrap]</em> (<strong><em>[commun/bootstrap]</em></strong>), partagé par les exemples qui mettent leurs pages en forme (à partir de l&#x27;exemple 15), et la route qui le sert (<strong><em>[commun/bootstrap.php]</em></strong>, cf. exemple 15).</p>
-<p>Les exemples ont presque tous la même structure, celle d&#x27;une application <em>[Laravel]</em> ordinaire, réduite à l&#x27;essentiel. Par exemple, celle de l&#x27;exemple 13 :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
@@ -961,33 +1077,80 @@
 <span class="normal"><a href="#__codelineno-9-16">16</a></span>
 <span class="normal"><a href="#__codelineno-9-17">17</a></span>
 <span class="normal"><a href="#__codelineno-9-18">18</a></span>
-<span class="normal"><a href="#__codelineno-9-19">19</a></span>
-<span class="normal"><a href="#__codelineno-9-20">20</a></span>
-<span class="normal"><a href="#__codelineno-9-21">21</a></span>
-<span class="normal"><a href="#__codelineno-9-22">22</a></span>
-<span class="normal"><a href="#__codelineno-9-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>13-premiere-vue/
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a>├── app/
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a>│   ├── Http/
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a>│   │   └── Controllers/
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a>│   │       └── VuesController.php
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a>│   └── Models/
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a>│       └── PageModele.php
-<a id="__codelineno-9-8" name="__codelineno-9-8"></a>├── bootstrap/
-<a id="__codelineno-9-9" name="__codelineno-9-9"></a>│   ├── app.php
-<a id="__codelineno-9-10" name="__codelineno-9-10"></a>│   └── cache/
-<a id="__codelineno-9-11" name="__codelineno-9-11"></a>├── public/
-<a id="__codelineno-9-12" name="__codelineno-9-12"></a>│   └── index.php
-<a id="__codelineno-9-13" name="__codelineno-9-13"></a>├── resources/
-<a id="__codelineno-9-14" name="__codelineno-9-14"></a>│   └── views/
-<a id="__codelineno-9-15" name="__codelineno-9-15"></a>│       └── vues/
-<a id="__codelineno-9-16" name="__codelineno-9-16"></a>│           ├── inconnu.blade.php
-<a id="__codelineno-9-17" name="__codelineno-9-17"></a>│           └── index.blade.php
-<a id="__codelineno-9-18" name="__codelineno-9-18"></a>├── routes/
-<a id="__codelineno-9-19" name="__codelineno-9-19"></a>│   └── web.php
-<a id="__codelineno-9-20" name="__codelineno-9-20"></a>├── storage/
-<a id="__codelineno-9-21" name="__codelineno-9-21"></a>├── .env
-<a id="__codelineno-9-22" name="__codelineno-9-22"></a>├── artisan
-<a id="__codelineno-9-23" name="__codelineno-9-23"></a>└── composer.json
+<span class="normal"><a href="#__codelineno-9-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="s">"name"</span><span class="p">:</span><span class="w"> </span><span class="s">"cours/laravel-exemples"</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="s">"description"</span><span class="p">:</span><span class="w"> </span><span class="s">"Les 28 exemples du cours [Introduction étape par étape au framework web Laravel] : un seul dossier vendor, partagé par tous les exemples"</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="s">"type"</span><span class="p">:</span><span class="w"> </span><span class="s">"project"</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="s">"license"</span><span class="p">:</span><span class="w"> </span><span class="s">"MIT"</span><span class="p">,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="s">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">        </span><span class="s">"php"</span><span class="p">:</span><span class="w"> </span><span class="s">"^8.4"</span><span class="p">,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">        </span><span class="s">"ext-intl"</span><span class="p">:</span><span class="w"> </span><span class="s">"*"</span><span class="p">,</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">        </span><span class="s">"ext-pdo_mysql"</span><span class="p">:</span><span class="w"> </span><span class="s">"*"</span><span class="p">,</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">        </span><span class="s">"laravel/framework"</span><span class="p">:</span><span class="w"> </span><span class="s">"^13.33"</span><span class="p">,</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="s">"firebase/php-jwt"</span><span class="p">:</span><span class="w"> </span><span class="s">"^7.0"</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">    </span><span class="s">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="s">"optimize-autoloader"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="w">        </span><span class="s">"sort-packages"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="w">    </span><span class="s">"minimum-stability"</span><span class="p">:</span><span class="w"> </span><span class="s">"stable"</span><span class="p">,</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="w">    </span><span class="s">"prefer-stable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 6-12 : ce dont les exemples ont besoin : <em>[PHP]</em> 8.4 ou plus récent, les extensions <strong><em>[intl]</em></strong> (la mise en forme des nombres selon la langue, exemple 16) et <strong><em>[pdo_mysql]</em></strong> (l&#x27;accès à <em>[MySQL]</em>, exemple 28), <em>[Laravel]</em> et <em>[firebase/php-jwt]</em> (les jetons JWT, exemple 25). <strong><em>[^13.33]</em></strong> se lit « la version 13.33, ou une version plus récente de la version majeure 13 » ;</li>
+<li>les autres lignes règlent le comportement de <em>[Composer]</em> : le chargeur de classes est optimisé, les bibliothèques sont triées par nom, et seules les versions stables sont acceptées.</li>
+</ul>
+<p>Pour exécuter les exemples, on installe d&#x27;abord leurs bibliothèques, une fois pour toutes, dans un terminal ouvert sur le dossier <strong><em>[exemples]</em></strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>composer install
+</code></pre></div></td></tr></table></div>
+<p><em>[Composer]</em> crée le dossier <strong><em>[exemples/vendor]</em></strong>, <strong>partagé</strong> par les 28 exemples, et le fichier <strong><em>[composer.lock]</em></strong>, qui note les versions exactes installées (cf. étude de cas). Le dossier <strong><em>[commun]</em></strong> contient le framework CSS <em>[Bootstrap]</em> (<strong><em>[commun/bootstrap]</em></strong>), partagé par les exemples qui mettent leurs pages en forme (à partir de l&#x27;exemple 15), et la route qui le sert (<strong><em>[commun/bootstrap.php]</em></strong>, cf. exemple 15).</p>
+<p>Les exemples ont presque tous la même structure, celle d&#x27;une application <em>[Laravel]</em> ordinaire, réduite à l&#x27;essentiel. Par exemple, celle de l&#x27;exemple 13 :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span>
+<span class="normal"><a href="#__codelineno-11-22">22</a></span>
+<span class="normal"><a href="#__codelineno-11-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>13-premiere-vue/
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>├── app/
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>│   ├── Http/
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>│   │   └── Controllers/
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>│   │       └── VuesController.php
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>│   └── Models/
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>│       └── PageModele.php
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>├── bootstrap/
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>│   ├── app.php
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>│   └── cache/
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>├── public/
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>│   └── index.php
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a>├── resources/
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a>│   └── views/
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a>│       └── vues/
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a>│           ├── inconnu.blade.php
+<a id="__codelineno-11-17" name="__codelineno-11-17"></a>│           └── index.blade.php
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a>├── routes/
+<a id="__codelineno-11-19" name="__codelineno-11-19"></a>│   └── web.php
+<a id="__codelineno-11-20" name="__codelineno-11-20"></a>├── storage/
+<a id="__codelineno-11-21" name="__codelineno-11-21"></a>├── .env
+<a id="__codelineno-11-22" name="__codelineno-11-22"></a>├── artisan
+<a id="__codelineno-11-23" name="__codelineno-11-23"></a>└── composer.json
 </code></pre></div></td></tr></table></div>
 <ul>
 <li><strong><em>[public/index.php]</em></strong> : le point d&#x27;entrée de toutes les requêtes ; <strong><em>[bootstrap/app.php]</em></strong> : la construction de l&#x27;application ; <strong><em>[artisan]</em></strong> : l&#x27;outil en ligne de commande de <em>[Laravel]</em> (exemple 01) ;</li>
@@ -997,7 +1160,7 @@
 <li><strong><em>[.env]</em></strong> : les réglages propres à l&#x27;exemple (exemple 01) ; <strong><em>[storage]</em></strong> et <strong><em>[bootstrap/cache]</em></strong> : les fichiers que <em>[Laravel]</em> écrit lui-même (vues compilées, cache, sessions, journal).</li>
 </ul>
 <p>Pour exécuter un exemple, on ouvre un terminal sur son dossier (dans <em>[Visual Studio Code]</em> : clic droit sur le dossier de l&#x27;exemple, puis Ouvrir dans le terminal intégré), et on tape :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>php artisan serve
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>php artisan serve
 </code></pre></div></td></tr></table></div>
 <p>Tous les exemples écoutent sur le port 8000 : on ne peut en exécuter qu&#x27;un à la fois (ou il faut changer le port : <strong><em>[php artisan serve --port=8001]</em></strong>). On arrête le serveur par <strong><em>[Ctrl-C]</em></strong> dans le terminal. Il n&#x27;est pas nécessaire de relancer le serveur après une modification d&#x27;un fichier <em>[PHP]</em> ou d&#x27;une vue : elle est prise en compte à la requête suivante (exemple 01).</p>
 <p>Quand on ouvre le dossier <strong><em>[exemples]</em></strong> dans <em>[Visual Studio Code]</em>, l&#x27;extension <em>[PHP Intelephense]</em> analyse tous les fichiers, y compris ceux de <em>[Laravel]</em> dans le dossier <strong><em>[vendor]</em></strong> : on bénéficie, dans chaque fichier, de la complétion, de la navigation vers la définition d&#x27;une classe ou d&#x27;une méthode (touche <strong><em>[F12]</em></strong>), et du signalement des erreurs. Tous les exemples ayant leurs classes dans l&#x27;espace de noms <strong><em>[App]</em></strong>, l&#x27;extension peut signaler des classes « en double » : c&#x27;est sans conséquence sur l&#x27;exécution, puisque chaque exemple est exécuté seul. Pour éviter ces signalements, il suffit d&#x27;ouvrir le dossier de l&#x27;exemple lui-même.</p>
